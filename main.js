@@ -80,16 +80,16 @@ function perform_search() {
     
     if (distance_type == "driving_duration") {
         
-        nearest_endpoint = "NearestDriveTime";
+        nearest_endpoint = "nearestdriveduration";
     
     } else if (distance_type == "driving_distance") {
         
-        nearest_endpoint = "NearestDriveDistance";
+        nearest_endpoint = "nearestdrivedistance";
         
     } else {
         
         // as the crow flies
-        nearest_endpoint = "Nearest";
+        nearest_endpoint = "nearest";
         
     }
     
