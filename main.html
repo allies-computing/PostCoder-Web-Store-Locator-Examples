@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Store locator: Simple straight line search example</title>
+
+    <!-- Bing Maps JS SDK v7 -->
+    <!--<script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>-->
+      
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+      
+    <link rel="stylesheet" href="./style.css">
+      
+  </head>
+  <body>
+      
+      <div class="container">
+      
+        <div class="row">
+          
+            <div class="col-xs-12">
+                <h1>Store locator: Simple straight line search example</h1>
+                <hr>
+            </div>
+          
+          </div>
+      
+        <div class="row">
+          
+            <div class="col-xs-12" id="searchFormContainer">
+                
+                <!-- Search bar -->
+                
+                <form class="form-inline">
+                    <div class="form-group">
+                        
+                        <label for="searchInput">Postcode</label>
+                        
+                        <!-- Search input field -->
+                        <input type="search" class="form-control" id="searchInput" placeholder="e.g. NR14 7PZ">
+                    </div>
+                    
+                    <!-- Search button -->
+                    <button type="submit" class="btn btn-primary" id="searchButton">Find your nearest store</button>
+                    
+                    <!-- Loading spinner GIF -->
+                    <img src="./ajax-loader.gif" alt="Searching" class="hidden" id="searchLoader">
+                </form>
+                
+            </div>
+          
+          </div>
+          
+          <br>
+      
+        <div class="row">
+          
+            <div class="col-xs-12 col-md-3 col-lg-4">
+                
+                <p id="searchResultsIntro">Use the search above to find your nearest store</p>
+                
+                <!-- Search results list -->
+                
+                <ol id="searchResults">
+                
+                </ol>
+                
+            </div>
+          
+            <div class="col-xs-12 col-md-9 col-lg-8">
+                
+                <!-- Search map -->
+                
+                <div id="mapContainer"></div>
+                
+            </div>
+          
+          </div>
+      
+        <div class="row">
+          
+            <div class="col-xs-12">
+                <hr>
+                <p><small>PostCoder Web Store locator from Allies Computing<br>
+                <a href="https://www.alliescomputing.com/postcoder/store-locator">Pricing and general information</a><br>
+                <a href="https://developers.alliescomputing.com/postcoder-web-api/store-locator/overview">API documentation</a></small></p>
+            </div>
+          
+          </div>
+      
+      </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      
+    <!-- Load one of the JS files below, for the functions specific to that mapping provider -->
+      
+    <!-- Mapbox Functions -->
+    <script src="./mapbox.js"></script>
+      
+    <!-- Google Maps Functions -->
+    <!--<script src="./google.js"></script>-->
+      
+    <!-- Bing Maps Functions -->
+    <!--<script src="./bing.js"></script>-->
+    <!-- Note: You also need to un comment the line in the <head> portion for Bing maps to work -->
+      
+    <!-- General PostCoder Web Store Locator Functions -->
+    <!-- Load this for all mapping providers -->
+    <script src="./main.js"></script>
+      
+      <script>
+            
+        // This API key is for your mapping provider
+        // Get a Mapbox JS API key from - https://www.mapbox.com/studio/signup/
+        // Get a Google Maps JS API key from - https://developers.google.com/maps/documentation/javascript/
+        // Get a Bing Maps v7 API key from - https://www.microsoft.com/maps/create-a-bing-maps-key.aspx
+        var map_api_key = "INSERT YOUR MAP API KEY HERE";
+
+        // Presets for the map centre and zoom level
+        var map_centre_lat = 52.5855298179478;
+        var map_centre_long = 1.34860245382492;
+        var map_default_zoom = 14;
+        
+        // This is the API Key for PostCoder Web Store locator
+        // PCW45-12345-12345-1234X is a test API key which will only work with the postcode NR14 7PZ
+        // Sign up at https://www.alliescomputing.com/postcoder/sign-up to get your free trial API key
+        var postcoder_api_key = "PCW45-12345-12345-1234X";
+        
+        // This is the List ID for the list you have created using the Store Locator Places management tools
+        // When using the test API key "NaPTANRailStations" can be used and will return a list of UK railway stations as sample data
+        var list_id = "NaPTANRailStations";
+        
+        // Function to get the initial map view set up, defined in the mapping function JS files (mapbox.js, bing.js, google.js)
+        map_init(map_api_key, map_centre_lat, map_centre_long, map_default_zoom);
+          
+      </script>
+      
+  </body>
+</html>
