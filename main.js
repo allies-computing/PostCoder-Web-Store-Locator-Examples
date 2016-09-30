@@ -322,7 +322,7 @@ function click_result(marker_id) {
     
     $("#marker_"+marker_id).addClass("highlight");
     
-    offset = $("#marker_"+marker_id).offset();
+    offset = $("#marker_"+marker_id).position();
     
     if(marker_id > 0) {
         $("#searchResults").animate({
